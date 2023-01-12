@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private enum MovementState { idle, running, jumping, attack, die }
 
     [SerializeField] private LayerMask jumpableGround;
+    public LayerMask enemyLayers;
+
 
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 12f;
@@ -40,8 +42,13 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D wall in hitWalls) {
             playerMovement = new Vector2(0f, rb.velocity.y);
         }
-        rb.velocity = playerMovement;
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
+        foreach (Collider2D enemy in hitEnemies) {
+            if(enemy.gameObject.CompareTag("Enemy") || enemy.gameObject.CompareTag("Slime"))
+            playerMovement = new Vector2(0f, rb.velocity.y);
+        }
+        rb.velocity = playerMovement;
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);

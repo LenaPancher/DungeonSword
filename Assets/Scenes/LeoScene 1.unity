@@ -599,6 +599,10 @@ PrefabInstance:
       propertyPath: attackRange
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904093262756701791, guid: 6877fb649746c674d8fbbcf60d41892b, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9191291687500699561, guid: 6877fb649746c674d8fbbcf60d41892b, type: 3}
       propertyPath: healthBar
       value: 
