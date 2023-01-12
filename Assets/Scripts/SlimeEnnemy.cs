@@ -12,6 +12,8 @@ public class SlimeEnnemy : MonoBehaviour
 
     public int maxHealth = 100;
 
+    private bool dead = false;
+
     int currentHealth;
     // Start is called before the first frame update
     void Start()
@@ -22,16 +24,21 @@ public class SlimeEnnemy : MonoBehaviour
     public void TakeDamage(int damage){
         currentHealth -= damage;
         
-        if (currentHealth <= 0)
+        if (!dead)
         {
-            Die();
-        } else {
-            anim.SetTrigger("hurt");
+            if (currentHealth <= 0)
+            {
+                Die();
+            } else {
+                anim.SetTrigger("hurt");
+            }
         }
+        
         
     }
 
     void Die(){
+        dead = true;
         anim.SetTrigger("death");
         StartCoroutine(destroy());
         

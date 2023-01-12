@@ -16,7 +16,7 @@ public class BringerEnemy : MonoBehaviour
     public int attackDamage = 20;
     float nextAttackTime = 0f;
 
-    public float attackRate = 1.5f ;
+    public float attackRate = 2f ;
 
     public LayerMask playerLayer;
 
@@ -36,7 +36,7 @@ public class BringerEnemy : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies) {
             if(Time.time >= nextAttackTime && enemy.gameObject.CompareTag("Player")){
                 RandomAttack();
-                nextAttackTime = Time.time + 9f / attackRate;
+                nextAttackTime = Time.time + 6f / attackRate;
             }
         }
         
@@ -84,6 +84,7 @@ public class BringerEnemy : MonoBehaviour
     }
 
     void Die(){
+        attacking = true;
         anim.SetTrigger("death");
         StartCoroutine(destroy());
         
