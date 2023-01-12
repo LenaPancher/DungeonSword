@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 7fa32566ab6c049078212142bf6ff3b8
+  - enabled: 1
+    path: Assets/Scenes/LenaScene.unity
+    guid: 72b815222f528437897ebbd6ec460f68
+  - enabled: 1
     path: Assets/Scenes/LeoScene.unity
     guid: d1f22798e56d145c1b3dad35d9ef2dc6
   - enabled: 1
     path: Assets/Scenes/LeoScene 1.unity
     guid: f8f63bf6742bc492dbb7acf11c254172
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 01620b22d9dc9495d9afd757efa5eb26
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}

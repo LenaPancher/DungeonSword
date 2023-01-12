@@ -10,6 +10,7 @@ TagManager:
   - Spikes
   - Enemy
   - Slime
+  - Danger
   layers:
   - Default
   - TransparentFX
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Terrain
+    uniqueID: 533560189
     locked: 0
