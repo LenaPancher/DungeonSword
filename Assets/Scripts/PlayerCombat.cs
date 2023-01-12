@@ -29,7 +29,7 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies) {
-            if (enemy.gameObject.CompareTag("Enemy"))
+            if (enemy.gameObject.CompareTag("Enemy") || enemy.gameObject.CompareTag("Slime"))
             {
                 StartCoroutine(GiveDamages(enemy));
             }
@@ -37,7 +37,14 @@ public class PlayerCombat : MonoBehaviour
     }
     IEnumerator GiveDamages(Collider2D enemy){
         yield return new WaitForSeconds(0.5f);
-        enemy.GetComponent<BringerEnemy>().TakeDamage(attackDamage);
+        if (enemy.gameObject.CompareTag("Slime"))
+        {
+            enemy.GetComponent<SlimeEnnemy>().TakeDamage(attackDamage);
+        }   
+        else if (enemy.gameObject.CompareTag("Ennemy"))
+        {
+            enemy.GetComponent<BringerEnemy>().TakeDamage(attackDamage);
+        }   
     }
 
 }
