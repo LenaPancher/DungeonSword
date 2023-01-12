@@ -20,7 +20,7 @@ TagManager:
   - UI
   - Ground
   - BackGround
-  - 
+  - Items
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 503661123
+    locked: 0
+  - name: Items
+    uniqueID: 841490667
     locked: 0
   - name: Default
     uniqueID: 0
