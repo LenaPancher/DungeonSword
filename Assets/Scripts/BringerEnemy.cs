@@ -92,7 +92,7 @@ public class BringerEnemy : MonoBehaviour
 
     IEnumerator destroy()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.7f);
         Destroy(gameObject);
     }
     void OnDrawGizmosSelected()
