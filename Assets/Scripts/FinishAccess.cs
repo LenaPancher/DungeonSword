@@ -9,6 +9,7 @@ public class FinishAccess : MonoBehaviour
     private bool isTriggered = false;
     public SpriteRenderer spriteRenderer;
     public Sprite newSprite;
+    private Rigidbody2D rb;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,6 +20,8 @@ public class FinishAccess : MonoBehaviour
             {
                 spriteRenderer.sprite = newSprite;
             }
+            rb = collision.GetComponent<Rigidbody2D>();
+            rb.bodyType = RigidbodyType2D.Static;
             StartCoroutine(ChangeScene());
         }
     }
