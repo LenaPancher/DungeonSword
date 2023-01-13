@@ -9,7 +9,6 @@ public class PenguinController : MonoBehaviour
     private bool goingLeft = false;
 
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
 
     public Animator anim;
     public Transform attackPoint;
@@ -37,7 +36,6 @@ public class PenguinController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
     }
 
@@ -51,11 +49,11 @@ public class PenguinController : MonoBehaviour
                 if (goingLeft && Time.time < nextChangeDirectionTime)
                 {
                     moving = new Vector2(-3.0f, rb.velocity.y);
-                    spriteRenderer.flipX = true;
+                    transform.localScale = new Vector2(0.5f,0.5f);
                 } else if (Time.time < nextChangeDirectionTime)
                 {
                     moving = new Vector2(3.0f, rb.velocity.y);
-                    spriteRenderer.flipX = false;
+                    transform.localScale = new Vector2(-0.5f,0.5f);
                 } 
                 else {
                     nextChangeDirectionTime = Time.time + moveRate;
@@ -92,8 +90,8 @@ public class PenguinController : MonoBehaviour
             {
                 enemy.GetComponent<PlayerLife>().TakeDamage(damages);
             }
-            attacking = false; 
         }
+        attacking = false; 
     }
 
     public void TakeDamage(int damage){
