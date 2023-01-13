@@ -15,7 +15,10 @@ public class FinishAccess : MonoBehaviour
         if (isTriggered == false)
         {
             isTriggered = true;
-            spriteRenderer.sprite = newSprite;
+            if (!newSprite)
+            {
+                spriteRenderer.sprite = newSprite;
+            }
             StartCoroutine(ChangeScene());
         }
     }

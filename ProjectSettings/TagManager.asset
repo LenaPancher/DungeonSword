@@ -10,6 +10,7 @@ TagManager:
   - Spikes
   - Enemy
   - Slime
+  - Pinguin
   layers:
   - Default
   - TransparentFX

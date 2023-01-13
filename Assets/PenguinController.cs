@@ -8,6 +8,7 @@ public class PenguinController : MonoBehaviour
     public Animator anim;
     public Transform attackPoint;
     public float attackRange = 1.3f;
+    private bool isDead = false;
 
     bool attacking = false;
 
@@ -32,8 +33,8 @@ public class PenguinController : MonoBehaviour
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
         
-        foreach (Collider2D enemy in hitEnemies) {
-            if(Time.time >= nextAttackTime && enemy.gameObject.CompareTag("Player")){
+        foreach (Collider2D enemy in hitEnemies) { 
+            if(Time.time >= nextAttackTime && enemy.gameObject.CompareTag("Player") && isDead == false){
                 RandomAttack();
                 nextAttackTime = Time.time + 3f / attackRate;
             }
@@ -74,6 +75,7 @@ public class PenguinController : MonoBehaviour
             
             if (currentHealth <= 0)
             {
+                isDead = true;
                 Die();
             } else {
                 anim.SetTrigger("hurt");
@@ -90,7 +92,7 @@ public class PenguinController : MonoBehaviour
 
     IEnumerator destroy()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
     }
     void OnDrawGizmosSelected()
