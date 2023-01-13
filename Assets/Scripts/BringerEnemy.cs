@@ -61,7 +61,7 @@ public class BringerEnemy : MonoBehaviour
         yield return new WaitForSeconds(duration);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
         foreach (Collider2D enemy in hitEnemies) {
-            if (enemy.gameObject.CompareTag("Player")) 
+            if (enemy.gameObject.CompareTag("Player"))  
             {
                 enemy.GetComponent<PlayerLife>().TakeDamage(damages);
             }

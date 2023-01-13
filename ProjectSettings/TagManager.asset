@@ -10,7 +10,7 @@ TagManager:
   - Spikes
   - Enemy
   - Slime
-  - Danger
+  - Pinguin
   layers:
   - Default
   - TransparentFX
@@ -48,6 +48,8 @@ TagManager:
   - name: Background
     uniqueID: 503661123
     locked: 0
+  - name: Props
+    uniqueID: 4033502489
   - name: Items
     uniqueID: 841490667
     locked: 0
@@ -55,5 +57,5 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Terrain
-    uniqueID: 533560189
+    uniqueID: 902141469
     locked: 0
