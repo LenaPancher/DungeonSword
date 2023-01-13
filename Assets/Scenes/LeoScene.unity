@@ -14426,8 +14426,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
-  maxHealth: 100
   hitSoundEffect: {fileID: 1937637252}
+  maxHealth: 70
 --- !u!50 &1937637247
 Rigidbody2D:
   serializedVersion: 4

@@ -48,8 +48,9 @@ public class PlayerMovement : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies) {
-            if(enemy.gameObject.CompareTag("Enemy") || enemy.gameObject.CompareTag("Slime"))
-            playerMovement = new Vector2(0f, rb.velocity.y);
+            if(enemy.gameObject.CompareTag("Enemy") || enemy.gameObject.CompareTag("Slime") || enemy.gameObject.CompareTag("Pinguin")){
+                playerMovement = new Vector2(0f, rb.velocity.y);
+            }
         }
         rb.velocity = playerMovement;
         if (Input.GetButtonDown("Jump") && IsGrounded())

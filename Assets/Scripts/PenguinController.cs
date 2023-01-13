@@ -5,6 +5,12 @@ using UnityEngine;
 public class PenguinController : MonoBehaviour
 {
 
+    public bool moving = true;
+    private bool goingLeft = false;
+
+    private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+
     public Animator anim;
     public Transform attackPoint;
     public float attackRange = 1.3f;
@@ -13,6 +19,10 @@ public class PenguinController : MonoBehaviour
     [SerializeField] private AudioSource hitSoundEffect;
 
     bool attacking = false;
+
+    float nextChangeDirectionTime = 0f;
+    public float moveRate = 1.5f;
+    bool hurt = false;
 
     public int attackDamageHeavy = 50;
     public int attackDamage = 10;
@@ -28,11 +38,36 @@ public class PenguinController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
     }
 
     void Update()
     {
+        if (moving)
+        {
+            Vector2 moving = new Vector2(0.0f, rb.velocity.y);
+            if (!attacking && !hurt)
+            {
+                if (goingLeft && Time.time < nextChangeDirectionTime)
+                {
+                    moving = new Vector2(-3.0f, rb.velocity.y);
+                    spriteRenderer.flipX = true;
+                } else if (Time.time < nextChangeDirectionTime)
+                {
+                    moving = new Vector2(3.0f, rb.velocity.y);
+                    spriteRenderer.flipX = false;
+                } 
+                else {
+                    nextChangeDirectionTime = Time.time + moveRate;
+                    goingLeft = !goingLeft;
+                }
+            }
+            rb.velocity = moving;           
+        }
+
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
         
         foreach (Collider2D enemy in hitEnemies) { 
@@ -46,16 +81,8 @@ public class PenguinController : MonoBehaviour
 
     void RandomAttack(){
         attacking = true;
-        System.Random rand = new System.Random();
-        int num = rand.Next(0, 2);
-        if (num == 0) {
-            anim.SetTrigger("attack");
-            StartCoroutine(Damaging(0.2f, attackDamage));
-        }
-        else {
-            anim.SetTrigger("attack");
-            StartCoroutine(Damaging(0.2f, attackDamage)); 
-        }
+        anim.SetTrigger("attack");
+        StartCoroutine(Damaging(0.2f, attackDamage));
             
     }
 
@@ -72,6 +99,7 @@ public class PenguinController : MonoBehaviour
     }
 
     public void TakeDamage(int damage){
+        hurt = true;
         if (attacking == false){
             currentHealth -= damage;
             
@@ -82,6 +110,7 @@ public class PenguinController : MonoBehaviour
             } else {
                 hitSoundEffect.Play();
                 anim.SetTrigger("hurt");
+                StartCoroutine(EndHurt());
             }
         }
         
@@ -91,6 +120,11 @@ public class PenguinController : MonoBehaviour
         anim.SetTrigger("death");
         StartCoroutine(destroy());
         
+    }
+
+    IEnumerator EndHurt(){
+        yield return new WaitForSeconds(0.3f);
+        hurt = false;
     }
 
     IEnumerator destroy()
