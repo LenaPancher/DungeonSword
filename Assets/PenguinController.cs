@@ -10,6 +10,8 @@ public class PenguinController : MonoBehaviour
     public float attackRange = 1.3f;
     private bool isDead = false;
 
+    [SerializeField] private AudioSource hitSoundEffect;
+
     bool attacking = false;
 
     public int attackDamageHeavy = 50;
@@ -78,6 +80,7 @@ public class PenguinController : MonoBehaviour
                 isDead = true;
                 Die();
             } else {
+                hitSoundEffect.Play();
                 anim.SetTrigger("hurt");
             }
         }

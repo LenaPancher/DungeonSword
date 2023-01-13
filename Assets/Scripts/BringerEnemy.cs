@@ -10,6 +10,8 @@ public class BringerEnemy : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 1.3f;
 
+    [SerializeField] private AudioSource hitSoundEffect;
+
     bool attacking = false;
 
     public int attackDamageHeavy = 50;
@@ -77,6 +79,7 @@ public class BringerEnemy : MonoBehaviour
             {
                 Die();
             } else {
+                hitSoundEffect.Play();
                 anim.SetTrigger("hurt");
             }
         }

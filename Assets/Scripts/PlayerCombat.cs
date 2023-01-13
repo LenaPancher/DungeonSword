@@ -8,6 +8,8 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
 
+    [SerializeField] private AudioSource attackSoundEffect;
+
     public int attackDamage = 30;
     float nextAttackTime = 0f;
 
@@ -18,6 +20,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if(Time.time >= nextAttackTime){
             if (Input.GetKeyDown(KeyCode.E)){
+                attackSoundEffect.Play();
                 Attack();
                 nextAttackTime = Time.time + 1.5f / attackRate;
             }
