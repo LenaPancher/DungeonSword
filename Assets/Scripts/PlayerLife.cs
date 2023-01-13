@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
+    public Image healthBar;
     private Rigidbody2D rb;
     private Animator anim;
     private bool isDead = false;
@@ -32,7 +34,11 @@ public class PlayerLife : MonoBehaviour
 
     public void TakeDamage(int damage){
         currentHealth -= damage;
-        
+        if (healthBar != null){
+            float diff = (float)currentHealth / (float)maxHealth;
+            healthBar.fillAmount = diff;
+        }
+
         if (currentHealth <= 0)
         {
             Die();

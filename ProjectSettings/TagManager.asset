@@ -20,7 +20,7 @@ TagManager:
   - UI
   - Ground
   - BackGround
-  - 
+  - Items
   - 
   - 
   - 
@@ -50,6 +50,8 @@ TagManager:
     locked: 0
   - name: Props
     uniqueID: 4033502489
+  - name: Items
+    uniqueID: 841490667
     locked: 0
   - name: Default
     uniqueID: 0
