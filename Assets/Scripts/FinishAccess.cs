@@ -15,7 +15,7 @@ public class FinishAccess : MonoBehaviour
         if (isTriggered == false)
         {
             isTriggered = true;
-            if (!newSprite)
+            if (newSprite != null)
             {
                 spriteRenderer.sprite = newSprite;
             }
