@@ -39229,7 +39229,7 @@ PrefabInstance:
     - target: {fileID: 2049830483234449576, guid: 32b453da01b414b338aeb7982ef43f84, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 1666936267}
+      objectReference: {fileID: 1807476410}
     - target: {fileID: 6184096231880776030, guid: 32b453da01b414b338aeb7982ef43f84, type: 3}
       propertyPath: enemyLayers.m_Bits
       value: 1
