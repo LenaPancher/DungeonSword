@@ -15,6 +15,8 @@ public class PenguinController : MonoBehaviour
     public float attackRange = 1.3f;
     private bool isDead = false;
 
+    [SerializeField] private AudioSource hitSoundEffect;
+
     bool attacking = false;
 
     float nextChangeDirectionTime = 0f;
@@ -104,6 +106,7 @@ public class PenguinController : MonoBehaviour
                 isDead = true;
                 Die();
             } else {
+                hitSoundEffect.Play();
                 anim.SetTrigger("hurt");
                 StartCoroutine(EndHurt());
             }

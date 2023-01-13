@@ -14,6 +14,8 @@ public class SlimeEnnemy : MonoBehaviour
 
     private bool dead = false;
 
+    [SerializeField] private AudioSource hitSoundEffect;
+
     int currentHealth;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class SlimeEnnemy : MonoBehaviour
             {
                 Die();
             } else {
+                hitSoundEffect.Play();
                 anim.SetTrigger("hurt");
             }
         }
