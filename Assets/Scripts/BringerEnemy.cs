@@ -11,6 +11,11 @@ public class BringerEnemy : MonoBehaviour
     public float attackRange = 1.3f;
 
     [SerializeField] private AudioSource hitSoundEffect;
+    [SerializeField] private AudioSource attackSoundEffect;
+    [SerializeField] private AudioSource castSpellSoundEffect;
+    [SerializeField] private AudioSource spellSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
+
 
     bool attacking = false;
 
@@ -50,17 +55,24 @@ public class BringerEnemy : MonoBehaviour
         int num = rand.Next(0, 2);
         if (num == 0) {
             anim.SetTrigger("attack");
-            StartCoroutine(Damaging(1.3f, attackDamage));
+            StartCoroutine(Damaging(1.3f, attackDamage, "attack"));
         }
         else {
             anim.SetTrigger("spell");
-            StartCoroutine(Damaging(1.5f, attackDamageHeavy)); 
+            castSpellSoundEffect.Play();
+            StartCoroutine(Damaging(1.5f, attackDamageHeavy, "spell")); 
         }
             
     }
 
-    IEnumerator Damaging(float duration, int damages) {
+    IEnumerator Damaging(float duration, int damages, string attackType) {
         yield return new WaitForSeconds(duration);
+        switch (attackType)
+        {
+            case "attack": attackSoundEffect.Play(); break;
+            case "spell": spellSoundEffect.Play(); break;
+        }
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
         foreach (Collider2D enemy in hitEnemies) {
             if (enemy.gameObject.CompareTag("Player"))  
@@ -77,6 +89,7 @@ public class BringerEnemy : MonoBehaviour
             
             if (currentHealth <= 0)
             {
+                deathSoundEffect.Play();
                 Die();
             } else {
                 hitSoundEffect.Play();
