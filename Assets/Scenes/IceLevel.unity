@@ -37141,7 +37141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -10, y: 5.9999995}
+  m_AnchoredPosition: {x: -8, y: 5.9999995}
   m_SizeDelta: {x: 496, y: 279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1250044855
@@ -37439,7 +37439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -19.62, y: -1.24}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1440584447
@@ -39264,6 +39264,63 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2049830483234449576, guid: 32b453da01b414b338aeb7982ef43f84, type: 3}
+    - target: {fileID: 1077038837971759651, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_Name
+      value: sword_man
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078327319730138421, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: attackSoundEffect
+      value: 
+      objectReference: {fileID: 4210158447751700}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078622996279753613, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096266684259027814, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
+      propertyPath: jumpSoundEffect
+      value: 
+      objectReference: {fileID: 4210158447751708}
+    - target: {fileID: 8176562116407851664, guid: 9de2e3ed2bca64f43b8091d1f236c631, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1807476410}

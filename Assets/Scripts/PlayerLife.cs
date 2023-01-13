@@ -43,7 +43,7 @@ public class PlayerLife : MonoBehaviour
         {
             Die();
         } else {
-            rb.velocity = new Vector2(-15f, 5f);
+            rb.velocity = new Vector2(0f, 2.5f);
         }
     }
 
