@@ -78,7 +78,7 @@ public class PenguinController : MonoBehaviour
     void RandomAttack(){
         attacking = true;
         anim.SetTrigger("attack");
-        StartCoroutine(Damaging(0.2f, attackDamage));
+        StartCoroutine(Damaging(0.1f, attackDamage));
             
     }
 
